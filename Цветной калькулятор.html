@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>калькулятор</title>
+		<style type="text/css">
+			body{
+				font-size: 2em;
+				font-weight: bold;
+				font-family: Calibri;
+			}
+			.btn_operation{
+				width:100px;
+				height:100px;
+				background: #110f0f;
+				margin-bottom:10px ;
+				font-size: 2em;
+				font-weight: bold;
+				font-family: Calibri;
+				color: white;
+			}
+			.btn_digiht{
+				width:100px;
+				height:100px;
+				background: #525758;
+				margin-bottom:10px ;
+				font-size: 2em;
+				font-weight: bold;
+				font-family: Calibri;
+				color: white;
+			}
+			#window{
+				align-self: center;
+				background-color: #363538;
+				width: 430px;
+				height: 550px;
+				padding: 10px 0 0 10px;
+				margin: 100px auto;
+				box-shadow: 50px 40px 70px 20px #363538;
+				border-radius: 6px;
+			}
+			#number{
+				height:100px;
+				width:314px;
+				font-size: 2em;
+				font-weight: bold;
+				font-family: Calibri;
+				background: #9caa70;
+			}
+			#res{
+				background:#e7582a;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="window">
+			<button class="btn_operation" id ="clear">C</button>
+			<input id="number"><br>
+			<button class="btn_digiht" id="seven">7</button>
+			<button class="btn_digiht" id="eight">8</button>
+			<button class="btn_digiht" id="nine">9</button>
+			<button class="btn_operation" id = "plus">+</button> <br> 
+			<button class="btn_digiht" id="four">4</button>
+			<button class="btn_digiht" id="five">5</button>
+			<button class="btn_digiht" id="six">6</button>
+			<button class="btn_operation" id = "minus">-</button> <br> 
+			<button class="btn_digiht" id="one">1</button>
+			<button class="btn_digiht" id="two">2</button>
+			<button class="btn_digiht" id="three">3</button>
+			<button class="btn_operation" id = "multiple">x</button> <br> 
+			<button class="btn_operation" id="dot">.</button>
+			<button class="btn_digiht" id="zero">0</button>
+			<button class="btn_operation" id = "divide">/</button> 
+			<button class="btn_operation" id="res">=</button> <br>
+		</div>
+		<script>
+			const dot = document.getElementById("dot")
+			const clear = document.getElementById("clear")
+			const result = document.getElementById("res")
+			const plus = document.getElementById("plus")
+			const minus = document.getElementById("minus")
+			const multiple = document.getElementById("multiple")
+			const divide = document.getElementById("divide")
+			let number = document.getElementById("number")
+			let a=String
+
+			const zero = document.getElementById("zero")
+			const one = document.getElementById("one")
+			const two = document.getElementById("two")
+			const three = document.getElementById("three")
+			const four = document.getElementById("four")
+			const five = document.getElementById("five")
+			const six = document.getElementById("six")
+			const seven = document.getElementById("seven")
+			const eight = document.getElementById("eight")
+			const nine = document.getElementById("nine")
+
+			dot.onclick = function() {number.value += '.'}
+			zero.onclick = function() {number.value += '0'}
+			one.onclick = function() {number.value += '1'}
+			two.onclick = function() {number.value += '2'}
+			three.onclick = function() {number.value += '3'}
+			four.onclick = function() {number.value += '4'}
+			five.onclick = function() {number.value += '5'}
+			six.onclick = function() {number.value += '6'}
+			seven.onclick = function() {number.value += '7'}
+			eight.onclick = function() {number.value += '8'}
+			nine.onclick = function() {number.value += '9'}
+
+			clear.onclick = function() {number.value = '';a=0}
+			plus.onclick = function () {
+				action = "+";
+				a=Number(number.value); 
+				number.value = '';}
+
+			minus.onclick = function () {
+				action = "-";
+				a=Number(number.value); 
+				number.value = '';}
+
+			multiple.onclick = function () {
+				action = "*";
+				a=Number(number.value); 
+				number.value = '';}
+
+			divide.onclick = function () {
+				action = "/";
+				a=Number(number.value); 
+				number.value = '';}
+			
+			result.onclick = function () {
+				if (action=="+"){number.value = a+Number(number.value)}
+				if (action=="-"){number.value = a-Number(number.value)}
+				if (action=="*"){number.value = a*Number(number.value)}
+				if (action=="/"){number.value = a/Number(number.value)}
+			}
+		</script>
+	</body>
+</html>
